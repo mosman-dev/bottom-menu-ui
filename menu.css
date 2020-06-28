@@ -1,0 +1,137 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #e0e5ec;
+}
+
+.menu-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #e0e5ec;
+	box-shadow: 2px 2px 2px rgb(163, 177, 198, 0.6),
+		-2px -2px 2px rgba(255, 255, 255, 0.5);
+	width: 300px;
+	height: 50px;
+	border-radius: 10px;
+}
+
+.menu-container ul {
+	width: 100%;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+li {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	list-style-type: none;
+	position: relative;
+	z-index: 1;
+	/* background: none; */
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	transition: all 0.5s ease-in-out;
+}
+
+li::before {
+	position: absolute;
+	content: '';
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: -1;
+	transform: scale(0.5);
+	opacity: 0;
+	transition: all 0.2s ease-in-out;
+	border-radius: 50%;
+	background: radial-gradient(ellipse at center, #7db9e8 0%, #1e5799 100%);
+}
+li:hover::before {
+	opacity: 1;
+	cursor: pointer;
+	box-shadow: none;
+	transform: scale(1);
+}
+
+li:hover > i {
+	color: #fff;
+	cursor: pointer;
+}
+
+li.special {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: inset -2px -2px 2px rgba(255, 255, 255, 0.5),
+		inset 2px 2px 2px rgb(163, 177, 198, 0.6);
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	transition: all 0.5s ease-in-out;
+}
+
+li.special.active {
+	transition: all 0.5s ease-in-out;
+	transform: rotate(45deg);
+	background: radial-gradient(ellipse at center, #7db9e8 0%, #1e5799 100%);
+	box-shadow: none;
+}
+
+i {
+	color: #6f7377;
+	font-size: 1.3em;
+}
+
+li.special.active i,
+.active i {
+	color: #fff;
+}
+
+.active {
+	background: radial-gradient(ellipse at center, #7db9e8 0%, #1e5799 100%);
+	box-shadow: none;
+}
+
+.selection {
+	background-color: #e0e5ec;
+	box-shadow: 0px -3px 2px rgba(255, 255, 255, 0.5);
+	width: 40px;
+	height: 20px;
+	border-radius: 50%;
+	position: absolute;
+	transform: translateY(-23px);
+	transition: all 0.4s ease-in-out;
+}
+
+.more-options {
+	visibility: hidden;
+	opacity: 0;
+	transition: all 0.2s ease-in-out;
+}
+
+.more-options ul {
+	display: flex;
+	justify-content: space-evenly;
+	position: absolute;
+	width: 170px;
+	transform: translate(-235px, -90px);
+}
+
+.more-options ul li {
+	box-shadow: 2px 2px 2px rgb(163, 177, 198, 0.6),
+		-2px -2px 2px rgba(255, 255, 255, 0.5);
+}
