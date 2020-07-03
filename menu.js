@@ -36,7 +36,17 @@ const reset = () => {
 
 // Menu Buttons
 
+let offsetX = {
+	0: -114,
+	1: -57,
+	2: 0,
+	3: 57,
+	4: 114,
+};
+
 for (let i = 0; i < menuButtons.length; i++) {
+	menuButtons[i].addEventListener('mouseover', () => moveSelection(offsetX[i]));
+
 	menuButtons[i].addEventListener('click', () => {
 		if (menuButtons[i].classList.contains('special')) {
 			if (menuButtons[i].classList.contains('active')) {
@@ -63,32 +73,3 @@ for (let i = 0; i < menuButtons.length; i++) {
 		}
 	});
 }
-
-// Menu Hover Selection
-
-let offsetX = 0;
-
-menuButtons[0].addEventListener('mouseover', () => {
-	offsetX = -114;
-	moveSelection(offsetX);
-});
-
-menuButtons[1].addEventListener('mouseover', () => {
-	offsetX = -57;
-	moveSelection(offsetX);
-});
-
-menuButtons[2].addEventListener('mouseover', () => {
-	offsetX = 0;
-	moveSelection(offsetX);
-});
-
-menuButtons[3].addEventListener('mouseover', () => {
-	offsetX = 57;
-	moveSelection(offsetX);
-});
-
-menuButtons[4].addEventListener('mouseover', () => {
-	offsetX = 114;
-	moveSelection(offsetX);
-});
